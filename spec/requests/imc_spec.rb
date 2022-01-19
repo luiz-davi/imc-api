@@ -4,7 +4,7 @@ RSpec.describe "Imcs", type: :request do
   describe "POST /calcular_imc" do
 
     it "returnar o resultado do cálculo do imc" do
-      post "/api/v1/imc", params: { height: 1.70, weight: 76 }
+      post "/api/v1/imc", params: { height: 1.70, weight: 76 }, headers: { "Authorization" => "Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.DiPWrOKsx3sPeVClrm_j07XNdSYHgBa3Qctosdxax3w" }
 
       expect(response).to have_http_status(:created)
       expect(JSON.parse(response.body)).to eq({
