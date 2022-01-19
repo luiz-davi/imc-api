@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Authentication", type: :request do
-    let!(:user) { FactoryBot.create(:user, name: 'luiz davi') }
+    let!(:user) { FactoryBot.create(:user, name: 'luiz davi', password: "123") }
 
     describe "POST /authenticate" do
         it "autenticando o cliente" do
@@ -31,11 +31,11 @@ RSpec.describe "Authentication", type: :request do
             })
         end
 
-        # it 'retorna um erro quando a senha estiver errada' do
-        #     post '/api/v1/authenticate', params: { username: 'luiz davi', password: "errada" }
+        it 'retorna um erro quando a senha estiver errada' do
+            post '/api/v1/authenticate', params: { name: 'luiz davi', password: "errada" }
 
-        #     expect(response).to have_http_status(:unauthorized )
-        # end
+            expect(response).to have_http_status(:unauthorized )
+        end
     end
 
 end
