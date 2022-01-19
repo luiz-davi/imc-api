@@ -4,7 +4,7 @@ RSpec.describe "Imcs", type: :request do
   describe "POST /calcular_imc" do
 
     it "returnar o resultado do cálculo do imc" do
-      post "/imc", params: { height: 1.70, weight: 76 }
+      post "/api/v1/imc", params: { height: 1.70, weight: 76 }
 
       expect(response).to have_http_status(:created)
       expect(JSON.parse(response.body)).to eq({
@@ -15,7 +15,7 @@ RSpec.describe "Imcs", type: :request do
     end
 
     it 'retonar um erro quando a altura estiver faltando' do
-      post "/imc", params: { weight: 76 }
+      post "/api/v1/imc", params: { weight: 76 }
 
       expect(response).to have_http_status(:unprocessable_entity)
       expect(JSON.parse(response.body)).to eq({
@@ -24,7 +24,7 @@ RSpec.describe "Imcs", type: :request do
     end
 
     it 'retonar um erro quando o peso estiver faltando' do
-      post "/imc", params: { height: 1.70 }
+      post "/api/v1/imc", params: { height: 1.70 }
 
       expect(response).to have_http_status(:unprocessable_entity)
       expect(JSON.parse(response.body)).to eq({
