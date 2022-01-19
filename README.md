@@ -1,10 +1,10 @@
 # IMC CALCULATOR
-> Status: **Em desenvolvimento**⚠️<br>
+> Status: **Finalizado**✅<br>
 
 ## Objetivo ✅
-A api visa fornecer informações sobre a partir do cálculo de IMC.
+A api visa fornecer informações a partir do cálculo de IMC.
 
-## Integrantes 👦
+## Autor 👦
 +   [Luiz Davi](https://github.com/luiz-davi)
 
 ## Funcionamento 🖥
@@ -16,7 +16,7 @@ A api visa fornecer informações sobre a partir do cálculo de IMC.
 Nele, deverá ser passado seu nome e senha no corpo do json.
 > curl -X POST http://localhost:3000/api/v1/authenticate -H "Content-Type: application/json" -d '{ "name": user_name, "password": password }'
 
-+ Dito isso, o endpoint que retorna as informações de imc é: (POST) "/api/v1/imc".
++ Dito isso, o endpoint que retorna as informações a partir do imc é: (POST) "/api/v1/imc".
 Essa chamada deve conter um json especificando a altura e peso do indivíduo, respectivamente.<br>
 Porém, para que seja possível ter acesso a api, é necessário estar authenticado no sistema, por isso, é necessário passar junto ao json da requisição o seu token de autenticação
 > curl --header "Authorization: Bearer **token**" --header "Content-Type: application/json" --request POST --data '{ "height": altura, "weight": peso }' http://localhost:3000/api/v1/imc
